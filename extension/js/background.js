@@ -1,19 +1,24 @@
 
 function getFullContactProfile(request, sendResponse) {
-    var apiKey = localStorage["fullcontact_apikey"];
+    var apiKey = localStorage['fullcontact_apikey'];
     if(apiKey) {
-        var url = "https://api.fullcontact.com/v2/person.html";
-        $.get(url, {"twitter": request.username, "apiKey": apiKey})
+        var url = 'https://api.fullcontact.com/v2/person.html';
+        $.get(url, {'twitter': request.username, 'apiKey': apiKey})
          .complete(function(jqXHR) {
-           var data = {}
-//           if(jqXHR.status == 200) data = $.parseJSON(jqXHR.responseText);
-           sendResponse({data: data, status:jqXHR.status, responseText: jqXHR.responseText});
+           var data = {'status':jqXHR.status, 'responseText': jqXHR.responseText};
+ console.log(data);
+           sendResponse(data);
          });
+    } 
+    else {
+        chrome.tabs.create({'url': 'popup.html'});
+        sendResponse({'status': 'apikey not set'});
     }
 }
 
 
 function requestHandler(request, sender, sendResponse) {
+    console.log(request);
     if(request.method == 'getFullContactProfile') {
         getFullContactProfile(request, sendResponse);
     }

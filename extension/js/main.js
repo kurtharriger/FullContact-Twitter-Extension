@@ -5,9 +5,20 @@ $(document).ready( function(){
         alert('todo');
     }
 
-    function complete_profile(username, container) {
-        var header = $('<h1>FullContact</h1>').appendTo(container);
-//        $('<span/>').addClass('fullcontact-loading').appendTo(header);
+    function complete_profile(container, request) {
+       chrome.extension.sendRequest(request, function(response) {
+         if(response.status == 200) {
+           var contactInfo = $(response.responseText).appendTo(container);
+           $('.twttr-dialog-container, .twttr-dialog-content').width('700px');
+         }
+         else if(response.status == 202) {
+             console.log('Queued, will try again');
+             setTimeout(function() {
+               complete_profile(container, request); 
+             }, 1000);
+
+         }
+       });
     }
 
     function extend_profile_dialog() {
@@ -17,7 +28,9 @@ $(document).ready( function(){
                 .insertBefore('.profile-modal .social-proof');
 
             var username = $('.profile-modal .js-screen-name ').text();
-            complete_profile(username, container);
+            
+            var request = {'method':'getFullContactProfile', 'username':username};
+            complete_profile(container, request);
         }
     }
 
