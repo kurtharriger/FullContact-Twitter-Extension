@@ -1,13 +1,22 @@
 
+var profiles = {};
+
 function getFullContactProfile(request, sendResponse) {
     var apiKey = localStorage['fullcontact_apikey'];
     if(apiKey) {
         var url = 'https://api.fullcontact.com/v2/person.html';
         $.get(url, {'twitter': request.username, 'apiKey': apiKey})
          .complete(function(jqXHR) {
-           var data = {'status':jqXHR.status, 'responseText': jqXHR.responseText};
- console.log(data);
-           sendResponse(data);
+           if(jqXHR.status == 202) {
+               console.log('202 for '+request.username);
+               setTimeout(function() { getFullContactProfile(request, sendResponse); }, 100);
+           }
+           else {
+               var data = {'status':jqXHR.status, 'responseText': jqXHR.responseText};
+               console.log('response for '+request.username);
+               console.log(data);
+               sendResponse(data);
+           }
          });
     } 
     else {
