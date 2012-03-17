@@ -7,6 +7,24 @@
     height:16px;
 }
 
+.fullcontact-profile-container {
+   background-image:url('chrome-extension://__MSG_@@extension_id__/images/fullcontact_32.png');
+   background-repeat:no-repeat;
+   padding: 5px 0 0 36px;
+   min-height: 32px;
+}
+
+.fullcontact-profile-container h1 {
+   font-size: 12pt;
+}
+
+.fullcontact-loading {
+   display: inline-block;
+   background-image: url('chrome-extension://__MSG_@@extension_id__/images/loading.gif');
+   height: 16px;
+   width: 16px;
+}
+
 #fullcontact_autofill { 
     display: inline;
     font-size: 13px; font-family: 'Tahoma', sans-serif; 
