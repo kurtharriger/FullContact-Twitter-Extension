@@ -30,12 +30,22 @@ $(document).ready( function(){
                            .insertBefore('.profile-modal .social-proof');
 
                        var contactInfo = $(data.responseText);
-                       console.log(contactInfo.find("#contactInfo"));
                        contactInfo.appendTo(container);
                        $('.twttr-dialog-container, .twttr-dialog-content').width('700px');
                    }
                });
         }
+    }
+    function rate_limit_exceeded() {
+        if(! $('.js-stream-title a.fullcontact-upgrade').length ) {
+            $('<a/>')
+                .attr('href', 'https://developer.fullcontact.com/sign-up/?plan_id=566&commercial=true')
+                .attr('target', '_new')
+                .addClass('fullcontact-upgrade')
+                .text('Upgrade Your FullContact Account')
+                .appendTo('.js-stream-title');
+        
+        } 
     }
 
     function update_ui() {
@@ -45,11 +55,20 @@ $(document).ready( function(){
           if(!data) {
               getFullContactProfile(username, update_ui);
           }
-          else if(data.status == 200) {
-              if(!$(this).find('.fullcontact_info').length) {
-                  $('<button/>').addClass('fullcontact_info').prependTo(this);
+          else {
+              if(data.status == 200) {
+                  if(!$(this).find('.fullcontact_info').length) {
+                      $('<img/>').addClass('fullcontact_info').prependTo(this);
+                  }
               }
+              else {
+                  if(data.status == 403) {
+                      rate_limit_exceeded();
+                  }
+              }
+                  
           }
+              
        });
        extend_profile_dialog();
         

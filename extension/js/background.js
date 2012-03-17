@@ -1,6 +1,4 @@
 
-var profiles = {};
-
 function getFullContactProfile(request, sendResponse) {
     var apiKey = localStorage['fullcontact_apikey'];
     if(apiKey) {
@@ -27,7 +25,6 @@ function getFullContactProfile(request, sendResponse) {
 
 
 function requestHandler(request, sender, sendResponse) {
-    console.log(request);
     if(request.method == 'getFullContactProfile') {
         getFullContactProfile(request, sendResponse);
     }
@@ -39,5 +36,3 @@ function requestHandler(request, sender, sendResponse) {
 chrome.extension.onRequest.addListener(requestHandler);
 chrome.extension.onRequestExternal.addListener(requestHandler);
 
-// getFullContactProfile({username:'al3x'}, function(data) { console.log(data); });
-// getFullContactProfile({username:'kurtharriger'}, function(data) { console.log(data); });
