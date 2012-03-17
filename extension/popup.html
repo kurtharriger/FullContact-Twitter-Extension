@@ -1,0 +1,100 @@
+<html>
+<head>
+	<title>FullContact API Key</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		function loadOptions() {
+			// set the logo image through JS - chorme doesn't allow local css reference
+			$('#fullcontact_logo').attr('src', chrome.extension.getURL("images/fullcontact_logo.png"));
+		  	
+			// populate the options form fields
+			$('#fullcontact_apikey').val(localStorage['fullcontact_apikey']);
+		}
+
+		function saveOptions() {
+			localStorage['fullcontact_apikey'] = $('#fullcontact_apikey').val().trim();
+			
+			$('#fcsf_options_status').html('Saved successfully ...');
+			$('#fcsf_options_status').fadeIn().delay('2000').fadeOut();
+		}
+
+		function resetOptions() {
+			localStorage.removeItem('fullcontact_apikey');
+			$('#fullcontact_apikey').val('');
+
+			$('#fcsf_options_status').html('Reset successfully ...');
+			$('#fcsf_options_status').fadeIn().delay('2000').fadeOut();
+		}
+	</script>	
+	<style>
+		body {
+			width: 330px;
+			margin: 4px auto;
+			padding: 14px;
+			font-family: 'Tahoma', sans-serif;
+			font-size: 13px;
+			color: #444;
+			line-height: 146%;
+			text-align: center;
+		}
+		p {
+			padding: 4px;	
+			text-align: center;
+		}
+		h2 {
+			font-size: 1.4em;
+			font-weight: 200;
+			text-align: center;
+		}
+		input {
+			width: 300px;
+			font-size: 1.2em;
+			padding: 6px;
+			margin-bottom: 6px;
+			border: 1px solid #ddd;
+			font-family: monospace;
+			
+			border-radius: 4px;
+			-webkit-border-radius: 4px;
+		}
+		button {
+			font-size: 1.1em;
+			padding: 6px 10px;
+		}
+		
+		button.save {
+			
+		}
+		
+		#fcsf_options_status {
+			font-family: monospace;
+			padding: 6px;
+			background-color: #ff9;
+			font-weight: 400;
+			margin: 0 30px;
+			display: none;
+		}		
+	</style>
+</head>
+<body onload="loadOptions();">
+	<p>
+		<img id="fullcontact_logo" src="" width="220px" style="align: center;"/><br /><br />
+		<h2>FullContact for Twitter</h2>
+
+		FullContact enhances your Twitter contacts using rich social profiles from the web and other public sources.
+	</p>
+	<h2>FullContact API key</h2>
+	<p>
+		<input type="text" id="fullcontact_apikey" val="" />
+		<br />
+		Get FullContact API key <a href="http://fullcontact.com/getkey/" target="_blank">here</a>
+	</p>
+	<p>
+		<button onclick="saveOptions();" class="save">Save</button>
+		&nbsp;&nbsp;&nbsp;
+		<button onclick="resetOptions();">Reset</button>
+		<br />
+		<div id="fcsf_options_status"></div>
+	</p>
+</body>
+</html>

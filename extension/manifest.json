@@ -1,0 +1,28 @@
+{
+  "name": "FullContact for Twitter",
+  "version": "1.0",
+  "description": "FullContact for Twitter Chrome Plugin",
+  "browser_action": {
+    "default_icon": "images/fullcontact_32.png",
+    "popup": "popup.html"
+  },
+  "icons":
+  {
+  	"128": "images/fullcontact_128.png",
+  	"64": "images/fullcontact_64.png",
+  	"48": "images/fullcontact_48.png",
+  	"32": "images/fullcontact_32.png"
+  },
+  "permissions": [
+    "https://api.fullcontact.com/*"
+  ],
+  "background_page": "background.html",
+  "options_page": "popup.html",
+  "content_scripts": [
+    {
+      "matches": ["https://*.salesforce.com/*"],
+      "css": ["css/main.css"],
+      "js": ["js/jquery.js", "js/main.js"]
+    }
+  ]
+}
