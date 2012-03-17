@@ -1,4 +1,12 @@
 /* fullcontact_autofill - on the edit pages */
+
+.fullcontact_info {
+    background-image:url('chrome-extension://__MSG_@@extension_id__/images/fullcontact_32.png');
+    background-size:16px 16px;
+    width: 16px;
+    height:16px;
+}
+
 #fullcontact_autofill { 
     display: inline;
     font-size: 13px; font-family: 'Tahoma', sans-serif; 

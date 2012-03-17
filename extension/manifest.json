@@ -20,7 +20,7 @@
   "options_page": "popup.html",
   "content_scripts": [
     {
-      "matches": ["https://*.salesforce.com/*"],
+      "matches": ["https://*.twitter.com/*"],
       "css": ["css/main.css"],
       "js": ["js/jquery.js", "js/main.js"]
     }
