@@ -6,19 +6,15 @@ function getFullContactProfile(request, sendResponse) {
         $.get(url, {'twitter': request.username, 'apiKey': apiKey})
          .complete(function(jqXHR) {
            if(jqXHR.status == 202) {
-               console.log('202 for '+request.username);
-               setTimeout(function() { getFullContactProfile(request, sendResponse); }, 100);
+               setTimeout(function() { getFullContactProfile(request, sendResponse); }, 1000);
            }
            else {
                var data = {'status':jqXHR.status, 'responseText': jqXHR.responseText};
-               console.log('response for '+request.username);
-               console.log(data);
                sendResponse(data);
            }
          });
     } 
     else {
-        chrome.tabs.create({'url': 'popup.html'});
         sendResponse({'status': 'apikey not set'});
     }
 }

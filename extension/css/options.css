@@ -1,0 +1,44 @@
+body  {
+	width: 330px;
+	margin: 4px auto;
+	padding: 14px;
+	font-family: 'Tahoma', sans-serif;
+	font-size: 13px;
+	color: #444;
+	line-height: 146%;
+	text-align: center;
+}
+p {
+	padding: 4px;	
+	text-align: center;
+}
+h2 {
+        margin-top: 2em;
+	font-size: 1.4em;
+	font-weight: 200;
+	text-align: center;
+}
+input {
+        display:block;
+   	width: 300px;
+	font-size: 1.2em;
+	padding: 6px;
+	margin-bottom: 6px;
+	border: 1px solid #ddd;
+	font-family: monospace;
+	
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+button {
+	font-size: 1.1em;
+	padding: 6px 20px;
+        margin: 0px 10px;
+}
+
+.status {
+	font-family: monospace;
+	color: #006600;
+	font-weight: 400;
+	display: none;
+}

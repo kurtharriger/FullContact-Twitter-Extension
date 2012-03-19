@@ -16,34 +16,6 @@
    float: right;
 }
 
-#fullcontact_error {
-    float: right;
-	font-family: monospace;
-    font-size: 11px;
-    line-height: 13px;
-    font-weight: 500; 
-    border: 1px solid #eee;
-    border-radius: 3px;
-	padding: 4px;
-	margin-top: 4px;
-	background-color: #ff9;
-	font-weight: 300;
-	display: none;
-}
+	
 
-/* fullcontact_box - on the view pages */
-#fullcontact_box { margin: 2px 8px 4px 8px; padding: 1px; }
 
-/* tweaks for FullContact powered by logo for space optimization */
-#contactInfo table:nth-child(2) { margin-top: -42px; }
-#contactInfo table:nth-child(2) span { color: #666; }
-#contactInfo table:nth-child(2) img { height: 26px; }
-
-/* font size adjustments for consistency - as html output is very big and "ugly" */
-#contactInfo > table { font-size: 108% !important; padding: 0 !important; }
-#contactInfo > table td { color: #444 !important;  }
-#contactInfo #name { font-size: 122% !important; color: #222 !important; }
-#contactInfo #title { font-size: 116% !important; color: #333 !important; }
-#contactInfo #age, #contactInfo #location  { font-style: italic !important; }
-#contactInfo #socialProfiles { padding: 4px 0 2px 0 !important; }
-#contactInfo #position-company { font-style: italic !important; }
