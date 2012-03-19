@@ -4,7 +4,7 @@
   "description": "FullContact for Twitter Chrome Plugin",
   "browser_action": {
     "default_icon": "images/fullcontact_32.png",
-    "popup": "popup.html"
+    "popup": "options.html"
   },
   "icons":
   {
@@ -17,7 +17,7 @@
     "https://api.fullcontact.com/*"
   ],
   "background_page": "background.html",
-  "options_page": "popup.html",
+  "options_page": "options.html",
   "content_scripts": [
     {
       "matches": ["https://*.twitter.com/*"],
