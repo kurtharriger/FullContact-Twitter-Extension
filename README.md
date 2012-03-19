@@ -27,4 +27,7 @@ The extension should now be installed.
 
 Click Options or the FullContact extension icon to set your API key.
 
+# Copyright
+
+Copyright (c) 2012 Kurt Harriger
 
