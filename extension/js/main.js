@@ -58,7 +58,9 @@ $(document).ready(function () {
             var username = $('.profile-modal .js-screen-name ').text();
             getFullContactProfile(username, function (data) {
                 if (data.status == 200) {
-                    var container = $('<div>').addClass('fullcontact-profile-container').insertBefore('.profile-modal .social-proof');
+                    var container = $('<div>')
+                        .addClass('fullcontact-profile-container')
+                        .insertBefore('.profile-modal .social-proof');
 
                     var contactInfo = $(data.responseText);
                     contactInfo.appendTo(container);
