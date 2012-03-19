@@ -14,6 +14,10 @@ FullContact has excellent API documentation which can be found here:
 Google documentation for chrome extension developers can be found here:
 [http://code.google.com/chrome/extensions/devguide.html](http://code.google.com/chrome/extensions/devguide.html)
 
+# Install from Chrome Web Store
+
+[Chrome Web Store](https://chrome.google.com/webstore/detail/nafjggcficclpgeojlpcggihiabjiaeb)
+
 # Installation from source
 
 git clone https://github.com/fullcontact/fullcontact-twitter-extension.git
